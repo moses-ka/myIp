@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents} from "react-leaflet";
 
+
 const Map = (prop) => {
   
     function LocationMarker() {
@@ -35,6 +36,7 @@ const Map = (prop) => {
     />
     <LocationMarker />
   </MapContainer>,
+  
      </div>
         </>
     )

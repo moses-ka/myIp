@@ -5,24 +5,32 @@ import 'leaflet/dist/leaflet.css';
 import Map from './map'
 
 import { DateTime } from "luxon";
+import Flag from './flag';
 
 function App() {
   const [ip, setIp] = useState()
   const [location, setLocation] = useState([])
   const [country, setCountry] = useState()
-  const [flag, setFlag] = useState()
-  const [alt, setAlt] = useState()
+ 
+  const {timezone, setTimezone} = useState('')
+  // const [blad, setBlad] = useState('')
+  const local = DateTime.local();
+  const [lat, setLat] = useState()
+  const [lon, setLon] = useState()
+let rezoned = local.setZone(timezone);
+rezoned = rezoned.toString()
  useEffect(() => {
-  axios.get('https://geo.ipify.org/api/v2/country?apiKey=at_819XzbXCXcoIF1aczs7j7nrcXGguZ')
+  axios.get('http://ip-api.com/json/')
   .then( function (response) {
     // handle success
-    console.log(response.data);
-    setIp(response.data.ip)
-    
-    setLocation(response.data.location)
-    setCountry(response.data.location.country)
-    
-    
+    setLon(response.data.lon)
+    setLat(response.data.lat)
+  
+    setIp(response.data.query)
+    setLocation(response.data)
+    setCountry(response.data.country)
+    setTimezone(response.data.timezone)
+ 
   })
   .catch(function (error) {
     // handle error
@@ -30,34 +38,27 @@ function App() {
   })
  }, [])
  
- useEffect( () => {
-  console.log(country)
-
-  axios.get(`https://restcountries.com/v3.1/alpha/DE`)
-  .then(function (response) {
-    // handle success
-    
-    console.log('response data', response.data);
-    setFlag(response.data[0].flags.png)
-    setAlt(response.data[0].flags.alt)
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error.message);
-  })
- },[country])
-  console.log( 'flag ')
+ 
+ 
+ 
   return (
     <>
      <div>
       <p>Ip Adress : {ip}</p>
       <p>Country : {location.country}</p>
-      <p>Region : {location.region}</p>
-      <p>TimeZone : {location.timezone}</p>
-      <img width="200px" src={flag} alt={alt}/>
+      <p>Region : {location.regionName}</p>
+      <p>TimeZone : {location.timezone + ' ' + rezoned} + </p>
       
      </div>
-      <Map/>
+      <div>
+      {country && lat && lon && (
+  <>
+    <Flag country={country} />
+    <Map lat={lat} lon={lon} country={country} />
+  </>
+)}
+      </div>
+    
      
     </>
   ) 

@@ -4,7 +4,10 @@ import { MapContainer, TileLayer, Marker, Popup, useMapEvents} from "react-leafl
 
 
 const Map = (prop) => {
+    const [lat, setLat] = useState(prop.lat)
+    const [lon, setLon] = useState(prop.lon)
   
+
     function LocationMarker() {
         const [position, setPosition] = useState(null)
         const map = useMapEvents({
@@ -27,7 +30,7 @@ const Map = (prop) => {
         <>
         <div    className="map">
         <MapContainer
-    center={{ lat: 51.505, lng: -0.09 }}
+    center={{ lat: lat, lng:lon }}
     zoom={13}
     scrollWheelZoom={false}>
     <TileLayer

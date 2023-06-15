@@ -12,7 +12,7 @@ const Flag =(prop)=>{
         axios.get(`https://restcountries.com/v3.1/name/${country}`)
         .then(function (response) {
           // handle success
-        console.log(response.data , 'this is response.data inside the second fitch for the flag') 
+     
           setBlad(response?.data[0])
           setFlag(response?.data[0].flags.png)
           setAlt(response?.data[0].flags.alt)
@@ -23,12 +23,12 @@ const Flag =(prop)=>{
           console.log(error.message);
         })
        },[])
-      console.log(flag , 'this is flag and alt after the fitch ' , alt)
+     
     return(
         <>
    <div>
     {flag && alt && (
-      <img width="300px" src={flag} alt={alt}/>
+      <img className="img-flag"  src={flag} alt={alt}/>
     )}
   
    </div>

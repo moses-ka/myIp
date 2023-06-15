@@ -1,7 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 5px;
   text-align: center;
 }
 
@@ -44,3 +44,35 @@
   height:400px;
   width: 400px;
 }
+.card-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  border-radius: 10px;
+  padding: 10px;
+  width: 400px;
+margin: 10px;
+}
+.img-flag{
+  width:400px;
+  height: 100px;
+}
+.container-map{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  gap: 10px;
+}
+.map{
+  width: 800px !important;
+}
+p{
+  font-size:16px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+

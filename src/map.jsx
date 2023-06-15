@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents} from "react-leaflet";
+import 'leaflet/dist/leaflet.css';
 
 
 const Map = (prop) => {
@@ -28,7 +29,7 @@ const Map = (prop) => {
       }
     return (
         <>
-        <div    className="map">
+        <div    className="">
         <MapContainer
     center={{ lat: lat, lng:lon }}
     zoom={13}
@@ -38,7 +39,7 @@ const Map = (prop) => {
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
     <LocationMarker />
-  </MapContainer>,
+  </MapContainer>
   
      </div>
         </>

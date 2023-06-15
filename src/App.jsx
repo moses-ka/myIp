@@ -43,14 +43,14 @@ rezoned = rezoned.toString()
  
   return (
     <>
-     <div>
+     <div className='card-container'>
       <p>Ip Adress : {ip}</p>
       <p>Country : {location.country}</p>
       <p>Region : {location.regionName}</p>
       <p>TimeZone : {location.timezone + ' ' + rezoned} + </p>
       
      </div>
-      <div>
+      <div className='container-map'>
       {country && lat && lon && (
   <>
     <Flag country={country} />

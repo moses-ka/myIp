@@ -54,7 +54,7 @@ rezoned = rezoned.toString()
       {country && lat && lon && (
   <>
     <Flag country={country} />
-    <Map lat={lat} lon={lon} country={country} ip={ip} timezone={timezone} />
+    <Map lat={lat} lon={lon} country={country}  />
   </>
 )}
       </div>

@@ -37,8 +37,8 @@ const Map = (prop) => {
     />
     <Marker position={position}>
       <Popup>
-       <p>{prop.country} <br />
-       {prop.ip}</p>
+       <p>
+        You're here </p>
       </Popup>
     </Marker>
   </MapContainer>,

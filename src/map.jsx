@@ -41,8 +41,8 @@ const Map = (prop) => {
         You're here </p>
       </Popup>
     </Marker>
-  </MapContainer>,
-)
+  </MapContainer>
+
   
      </div>
         </>

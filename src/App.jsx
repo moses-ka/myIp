@@ -20,16 +20,16 @@ function App() {
 let rezoned = local.setZone(timezone);
 rezoned = rezoned.toString()
  useEffect(() => {
-  axios.get('http://ip-api.com/json/')
+  axios.get('https://geo.ipify.org/api/v2/country,city?apiKey=at_kIYjBT1bdFAr8WywYmHjFb3wkjt1')
   .then( function (response) {
     // handle success
-    setLon(response.data.lon)
-    setLat(response.data.lat)
-  
-    setIp(response.data.query)
-    setLocation(response.data)
-    setCountry(response.data.country)
-    setTimezone(response.data.timezone)
+    setLon(response.data.location.lng)
+    setLat(response.data.location.lat)
+    console.log(response.data , 'this is the api that doesnt work')
+    setIp(response.data.ip)
+    setLocation(response.data.location)
+    setCountry(response.data.location.country)
+    setTimezone(response.data.location.timezone)
  
   })
   .catch(function (error) {
@@ -46,8 +46,8 @@ rezoned = rezoned.toString()
      <div className='card-container'>
       <p>Ip Adress : {ip}</p>
       <p>Country : {location.country}</p>
-      <p>Region : {location.regionName}</p>
-      <p>TimeZone : {location.timezone + ' ' + rezoned} + </p>
+      <p>Region : {location.region}</p>
+      <p>TimeZone : { ' ' + rezoned } + </p>
       
      </div>
       <div className='container-map'>

@@ -37,9 +37,9 @@ const Map = (prop) => {
     />
     <Marker position={position}>
        
+      <IoLocationSharp  size={44}/>
       <Popup>
        <p>
-      <IoLocationSharp  size={44}/>
         You're here </p>
       </Popup>
     </Marker>

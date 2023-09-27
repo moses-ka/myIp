@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents} from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
-
+import {IoLocationSharp} from 'react-icons/io5'
 
 const Map = (prop) => {
     const [lat, setLat] = useState(prop.lat)
@@ -36,8 +36,10 @@ const Map = (prop) => {
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
     <Marker position={position}>
+       
       <Popup>
        <p>
+      <IoLocationSharp  size={44}/>
         You're here </p>
       </Popup>
     </Marker>

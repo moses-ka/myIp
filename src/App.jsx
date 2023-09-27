@@ -20,7 +20,7 @@ function App() {
 let rezoned = local.setZone(timezone);
 rezoned = rezoned.toString()
  useEffect(() => {
-  axios.get('https://geo.ipify.org/api/v2/country,city?apiKey=at_kIYjBT1bdFAr8WywYmHjFb3wkjt1')
+  axios.get('https://geo.ipify.org/api/v2/country,city?apiKey=at_kIYjBT1bdFAr8WywYmHjFb3wkjt1x')
   .then( function (response) {
     // handle success
     setLon(response.data.location.lng)
